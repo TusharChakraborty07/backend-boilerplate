@@ -1,14 +1,14 @@
-require("dotenv").config();
-
 const express = require("express");
-const connectDB = require("./db_config/db");
+const connectDB = require("./config/db");
 
 const app = express();
 
-// Database connection
-
+// Database Connection
 connectDB();
 
-app.listen(`${process.env.PORT}`, () => {
-  console.log("Server is running");
+// Default Route
+app.get("/", (req, res) => {
+  res.send("Backend Server Running...");
 });
+
+module.exports = app;
