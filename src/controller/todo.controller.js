@@ -7,4 +7,12 @@ const getTodo = async (req, res) => {
   res.status(200).json({ sucess: true, data: todos });
 };
 
-module.exports = { getTodo };
+// Post
+const addTodo = async (req, res) => {
+  const todo = req.body;
+  const todos = await todoModel.create(todo);
+
+  res.status(200).json({ sucess: true, data: todo });
+};
+
+module.exports = { getTodo, addTodo };
